@@ -1,30 +1,16 @@
 pipeline {
     agent any
 
-    environment {
-        GITHUB_REPO = 'belwalrohit642/jenkins-assign'
-        NEW_BRANCH_NAME = 'new-brasdsdsdsnch'
-    }
-
     stages {
-        stage('Checkout') {
+        stage('Create New Branch') {
             steps {
                 script {
-                    checkout([$class: 'GitSCM', 
-                              branches: [[name: 'master']], 
-                              userRemoteConfigs: [[url: "https://github.com/${GITHUB_REPO}.git"]]])
-                }
-            }
-        }
+                    // Replace 'new-branch' with your desired branch name
+                    def newBranch = 'new-ew34'
 
-        stage('Create Branch') {
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: 'rahul_github_cred', passwordVariable: 'GITHUB_PASSWORD', usernameVariable: 'GITHUB_USERNAME')]) {
-                        sh "git config --global credential.helper cache"
-                        sh "git checkout -b ${NEW_BRANCH_NAME}"
-                        sh "git push origin ${NEW_BRANCH_NAME}"
-                    }
+                    // Create a new branch
+                    sh "git checkout -b $newBranch"
+                    sh "git push origin $newBranch"
                 }
             }
         }
