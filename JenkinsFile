@@ -1,16 +1,19 @@
 pipeline {
     agent any
 
-    environment {
-        // Specify the branch you want to check
-        targetBranch = 'master'
-    }
-
     stages {
-        stage('Checkout') {
+        stage('Input Branch') {
             steps {
                 script {
-                    checkout scm
+                    // Prompt user for input
+                    def userInput = input(
+                        id: 'branchInput',
+                        message: 'Please enter the branch name:',
+                        parameters: [string(defaultValue: 'master', description: 'Branch name', name: 'BRANCH')]
+                    )
+
+                    // Use the input as the target branch
+                    def targetBranch = userInput.BRANCH
 
                     // Check if the branch exists
                     if (branchExists(targetBranch)) {
@@ -21,7 +24,6 @@ pipeline {
                 }
             }
         }
-
     }
 }
 
@@ -31,4 +33,3 @@ def branchExists(branch) {
     // Check if the specified branch exists in the list of remote branches
     return remoteBranches.any { it.contains("refs/heads/${branch}") }
 }
-
