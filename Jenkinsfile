@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Replace 'new-branch' with your desired branch name
-                    def newBranch = 'new-ew34'
+                    def newBranch = 'new-e221w34'
 
                     // Set the GitHub credentials ID
                     def credentialsId = 'github_cred'
