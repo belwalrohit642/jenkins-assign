@@ -1,16 +1,19 @@
 pipeline {
     agent any
 
-    environment {
-        // Specify the branch you want to check
-        targetBranch = 'your_target_branch'
-    }
-
     stages {
-        stage('Checkout') {
+        stage('Input Branch') {
             steps {
                 script {
-                    checkout scm
+                    // Prompt user for input
+                    def userInput = input(
+                        id: 'branchInput',
+                        message: 'Please enter the branch name:',
+                        parameters: [string(defaultValue: 'master', description: 'Branch name', name: 'BRANCH')]
+                    )
+
+                    // Use the input as the target branch
+                    def targetBranch = userInput
 
                     // Check if the branch exists
                     if (branchExists(targetBranch)) {
@@ -21,6 +24,9 @@ pipeline {
                 }
             }
         }
+
+        // Add more stages as needed for your build process
+        // ...
 
     }
 }
