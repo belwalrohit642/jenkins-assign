@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GITHUB_REPO = 'belwalrohit642/jenkins-assign'
-        NEW_BRANCH_NAME = 'new-brasdsdnch'
+        NEW_BRANCH_NAME = 'new-brasdsdsdsnch'
     }
 
     stages {
