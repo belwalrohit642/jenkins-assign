@@ -24,10 +24,6 @@ pipeline {
                 }
             }
         }
-
-        // Add more stages as needed for your build process
-        // ...
-
     }
 }
 
