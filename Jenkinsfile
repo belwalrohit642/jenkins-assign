@@ -21,6 +21,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'rahul_github_cred', passwordVariable: 'GITHUB_PASSWORD', usernameVariable: 'GITHUB_USERNAME')]) {
+                        sh "git config --global credential.helper cache"
                         sh "git checkout -b ${NEW_BRANCH_NAME}"
                         sh "git push origin ${NEW_BRANCH_NAME}"
                     }
