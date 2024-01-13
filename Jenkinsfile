@@ -1,6 +1,6 @@
 pipeline {
     agent any
- 
+
     stages {
         stage('Checkout') {
             steps {
@@ -10,18 +10,18 @@ pipeline {
                 }
             }
         }
- 
+
         stage('Create Branch') {
             steps {
                 script {
                     // Define the new branch name
                     def newBranch = 'your_new_branch_name'
- 
+
                     // Create a new branch
                     sh "git checkout -b ${newBranch}"
- 
+
                     // Push the new branch to GitHub
-                    sh "git push origin ${newBranch}"
+                    sh "git push origin ${newBranch}:${newBranch}"
                 }
             }
         }
