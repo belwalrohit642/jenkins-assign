@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Specify the branch you want to check
-        targetBranch = 'your_target_branch'
+        targetBranch = 'master'
     }
 
     stages {
