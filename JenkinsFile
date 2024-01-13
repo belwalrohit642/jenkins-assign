@@ -13,7 +13,7 @@ pipeline {
                     )
 
                     // Use the input as the target branch
-                    def targetBranch = userInput.BRANCH
+                    def targetBranch = userInput
 
                     // Check if the branch exists
                     if (branchExists(targetBranch)) {
@@ -24,6 +24,10 @@ pipeline {
                 }
             }
         }
+
+        // Add more stages as needed for your build process
+        // ...
+
     }
 }
 
