@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Define the new branch name
-                    def newBranch = 'your_nsdsdew_branch_name'
+                    def newBranch = 'your_nsdsdessdsw_branch_name'
 
                     // Create a new branch
                     sh "git checkout -b ${newBranch}"
