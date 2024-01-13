@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GIT_REPO_URL = 'https://github.com/belwalrohit642/jenkins-assign.git'
-        NEW_BRANCH_NAME = 'new-branch'
+        NEW_BRANCH_NAME = 'neuuw-branch'
     }
 
     stages {
